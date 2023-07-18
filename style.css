@@ -1,0 +1,183 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background:black;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('https://source.unsplash.com/random/?nature');
+}
+
+.main-body {
+  background: black;
+  opacity: 80%;
+  color: white;
+  padding: 2.5em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 475px;
+  margin: 10px;
+}
+
+/*search bar*/
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar {
+  padding: 15px;
+  height: 30px;
+  border-radius: 15px;
+  width: 200px;
+  background-color: rgb(39, 36, 36);
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-size: 110%;
+}
+input.search-bar {
+  width: calc(100% - 150px);
+}
+.search-button {
+  margin: 5px;
+  height: 30px;
+  width: 30px; 
+  justify-content: left;  
+  border-radius: 15px;
+  border: none;
+}
+.search-button:hover {
+  opacity: 80%;
+}
+.search-button:active {
+  background-color: grey;
+}
+
+.error {
+  color:red;
+  margin-left: 5px;
+}
+
+/*toggle button*/
+.toggle {
+  font-weight: 700;
+  position: relative;
+  display: block;
+  width: 120px;
+  height: 40px;
+  padding: 3px;
+  margin: auto;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.toggle-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.toggle-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 14px;
+  background: grey;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 3px rgba(0, 0, 0, 0.15);
+}
+.toggle-label:before,
+.toggle-label:after {
+  position: absolute;
+  top: 50%;
+  color: white;
+  margin-top: -0.5em;
+  line-height: 1;
+}
+.toggle-label:before {
+  content: attr(metric-on);
+  right: 17px;
+  color: black;
+}
+.toggle-label:after {
+  content: attr(imperial-on);
+  left: 8px;
+  color: black;
+  opacity: 0;
+}
+.toggle-input:checked~.toggle-label {
+  background: grey;
+}
+.toggle-input:checked~.toggle-label:before {
+  opacity: 0;
+}
+.toggle-input:checked~.toggle-label:after {
+  opacity: 1;
+}
+.toggle-handle {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+  border-radius: 50%;
+}
+.toggle-handle:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 16px;
+  height: 16px;
+}
+.toggle-input:checked~.toggle-handle {
+  left: 76px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.toggle-label,
+.toggle-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
+}
+/*toggle button*/
+/*search bar*/
+
+.temperature {
+  margin: 0;
+}
+
+.feels-like {
+  margin: 0;
+}
+
+.high-low {
+  margin: 0;
+  font-size: 14px;;
+}
+
+.conditions {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.weather-description {
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+
+.weather.loading {
+  visibility: hidden;
+}
