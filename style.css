@@ -177,7 +177,3 @@ input.search-bar {
   text-transform: capitalize;
   margin-left: 5px;
 }
-
-.weather.loading {
-  visibility: hidden;
-}

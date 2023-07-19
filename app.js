@@ -33,6 +33,7 @@ let weatherAPI = {
     this.metric ? document.querySelector(".temperature").innerText = `${temp}℃` : document.querySelector(".temperature").innerText =`${temp}°F`;
     this.metric ? document.querySelector(".feels-like").innerText = `Feels like ${feels_like}℃` : document.querySelector(".feels-like").innerText = `Feels like ${feels_like}°F`;
     this.metric ? document.querySelector(".high-low").innerText = `High/Low: ${temp_max}℃ / ${temp_min}℃` : document.querySelector(".high-low").innerText = `High/Low: ${temp_max}°F / ${temp_min}°F`;
+    this.checkExtremeTemps(this.metric, temp, feels_like);
     document.querySelector(".weather-icon").src = `https://openweathermap.org/img/wn/${icon}.png`;
     document.querySelector(".weather-description").innerText = description;
     document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
@@ -43,6 +44,31 @@ let weatherAPI = {
   },
   displayError: function () {
     document.querySelector(".error").innerText = "Invalid city name!!";
+  } ,
+  checkExtremeTemps: function (metric, temp, feels_like) {
+    metric ?
+      temp >= 37.78 ?
+        document.querySelector(".temperature").style.color = "red"
+        : temp <= 0 ?
+          document.querySelector(".temperature").style.color = "aqua"
+          : document.querySelector(".temperature").style.color = "white"
+      : temp >= 100 ?
+        document.querySelector(".temperature").style.color = "red"
+        : temp <= 32 ?
+          document.querySelector(".temperature").style.color = "aqua"
+          : document.querySelector(".temperature").style.color = "white";
+    metric ?
+      feels_like >= 37.78 ?
+       document.querySelector(".feels-like").style.color = "red"
+        : temp <= 0 ?
+          document.querySelector(".feels-like").style.color = "aqua"
+          : document.querySelector(".feels-like").style.color = "white"
+      : feels_like >= 100 ?
+        document.querySelector(".feels-like").style.color = "red"
+        : temp <= 32 ?
+          document.querySelector(".feels-like").style.color = "aqua"
+          : document.querySelector(".feels-like").style.color = "white";
+    
   } 
 }
 
